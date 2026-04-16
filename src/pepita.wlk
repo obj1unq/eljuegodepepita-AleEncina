@@ -4,7 +4,7 @@ object pepita {
 
 	var energia = 100
 	
-	var property position = game.at(3, 3)
+	var property position = game.center()
 
 	method comer(comida) {
 		energia = energia + comida.energiaQueOtorga()
@@ -23,5 +23,7 @@ object pepita {
 	method positionX() {
 	  return position.x()
 	}
+
+	
 }
 
