@@ -12,5 +12,14 @@ program PepitaGame {
 
   	game.addVisualCharacter(pepita)
  	game.addVisual(silvestre)
+
+
+
+	game.onCollideDo(pepita, { algo =>
+	pepita.pepitaCazada()
+	})
+
+
+
 	game.start()
 }

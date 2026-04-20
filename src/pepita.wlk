@@ -1,3 +1,4 @@
+import src.extras.*
 import wollok.game.*
 
 object pepita {
@@ -6,6 +7,8 @@ object pepita {
 	
 	var property position = game.center()
 
+	var image = "pepita.png" 
+	
 	method comer(comida) {
 		energia = energia + comida.energiaQueOtorga()
 	}
@@ -18,12 +21,17 @@ object pepita {
 		return energia
 	}
 
-	method image() = "pepita.png" 
+	method pepitaCazada(){
+		image = "pepita-gris.png"
+	}
+
+	method image() {
+	  return image
+	}
 
 	method positionX() {
 	  return position.x()
 	}
-
 	
 }
 
