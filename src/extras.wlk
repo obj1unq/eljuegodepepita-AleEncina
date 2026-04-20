@@ -8,12 +8,15 @@ object silvestre {
 
     method image() = "silvestre.png"
 
-    method positionX(){
-        return Position.x()
+    method x(){
+        const xPresa = presa.position.x()
+
+        return if(xPresa >= 3) xPresa else 3
     }
 
     method positionY() {
 	  return Position.y()
 	}
+
 }
 
