@@ -1,3 +1,4 @@
+impoer wollok.game.*
 import pepita.*
 
 object silvestre {
