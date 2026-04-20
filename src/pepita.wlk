@@ -1,5 +1,6 @@
 import src.extras.*
 import wollok.game.*
+import silvestre.image
 
 object pepita {
 
@@ -7,7 +8,7 @@ object pepita {
 	
 	var property position = game.center()
 
-	var image = "pepita.png" 
+	var perseguidor = silvestre 
 	
 	method comer(comida) {
 		energia = energia + comida.energiaQueOtorga()
@@ -25,13 +26,17 @@ object pepita {
 		image = "pepita-gris.png"
 	}
 
-	method image() {
-	  return image
-	}
+	method image() = "pepita-" + self.estado() + ".png"
+
 
 	method positionX() {
 	  return position.x()
 	}
+
+ méthod estado(){
+    return if(self.atrapada()) "gris" else "libre"
 	
+
+ méthod atrapada() = posición == perseguidor.position()
 }
 
