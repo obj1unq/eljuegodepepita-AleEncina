@@ -1,6 +1,5 @@
 import src.extras.*
 import wollok.game.*
-import silvestre.image
 
 object pepita {
 
@@ -33,10 +32,10 @@ object pepita {
 	  return position.x()
 	}
 
- méthod estado(){
+ method estado(){
     return if(self.atrapada()) "gris" else "libre"
 	
 
- méthod atrapada() = posición == perseguidor.position()
+ method atrapada() = posición == perseguidor.position()
 }
 
