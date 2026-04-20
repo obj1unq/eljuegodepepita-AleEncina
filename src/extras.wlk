@@ -2,8 +2,9 @@ impoer wollok.game.*
 import pepita.*
 
 object silvestre {
-    
-    method position () = game.at(pepita.positionX(), 0)
+    const presa = pepita
+
+    method position () = game.at(presq.positionX(), 0)
 
     method image() = "silvestre.png"
 
