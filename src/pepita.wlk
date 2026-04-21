@@ -26,6 +26,9 @@ object pepita {
 	
 	method atrapada() = position == perseguidor.position()
 
-}
+	//method mover(direccion) {
+	//  return if
+	}
+//}
 
 
