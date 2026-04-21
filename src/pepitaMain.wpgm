@@ -10,17 +10,10 @@ program PepitaGame {
 	game.width(10)
 	game.boardGround('fondo2.jpg')
 
-  	
- game.addVisual(silvestre)
- game.addVisualCharacter(pepita)
 
+ 	game.addVisual(silvestre)
+	game.addVisualCharacter(pepita)
 
-
-	game.onCollideDo(pepita, { algo =>
-	pepita.pepitaCazada()
-	})
-
-
-
+	
 	game.start()
 }
