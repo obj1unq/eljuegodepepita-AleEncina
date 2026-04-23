@@ -1,10 +1,13 @@
 import src.extras.*
 import wollok.game.*
+import direccion.*
+
 
 object pepita {
 	var energia = 100
 	var property position = game.center()
 	const perseguidor = silvestre 
+	var estaViva = true
 	
 	method comer(comida) {
 		energia = energia + comida.energiaQueOtorga()
@@ -26,9 +29,20 @@ object pepita {
 	
 	method atrapada() = position == perseguidor.position()
 
-	//method mover(direccion) {
-	//  return if
+	method init() {
+		energia = 100
+		position = game.at(5,5)
+		estaViva = true
 	}
-//}
 
+	method mover(direccion) {
+	  return if(position.siguiente(direccion))
+	  self.volar(1)
+	}
+
+	method text() = "\n\n\n\n" + energia + "\""
+
+	method color() = "0E28ED" 
+
+}
 
