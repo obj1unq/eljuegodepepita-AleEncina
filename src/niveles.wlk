@@ -4,8 +4,6 @@ import direccion.*
 import pepita.*
 import comidas.*
 
-
-
 object nivel1 {
     method init() {
         pepita.init()
@@ -18,7 +16,7 @@ object nivel1 {
         
         keyboard.x().onPressDo({ self.init() })
         
-        // keyboard.c().onPressDo({ pepita.comerAca() })
+        //keyboard.c().onPressDo({ pepita.comerAca() })
         game.onCollideDo(manzana, { alguien => alguien.comer(manzana) })
         game.onCollideDo(silvestre, { alguien => alguien.morir() })
         game.onTick(1000, "gravedad", {     })

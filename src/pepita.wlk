@@ -11,10 +11,15 @@ object pepita {
 	
 	method comer(comida) {
 		energia = energia + comida.energiaQueOtorga()
+		game.removeVisual("manzana.png")
+	}
+
+	method comerAca() {
+	  game.removeVisual("manzana.png")
 	}
 
 	method volar(kms) {
-		energia = energia - 9 - kms 
+		energia = energia - 9 * kms 
 	}
 	
 	method energia() {
@@ -35,12 +40,16 @@ object pepita {
 		estaViva = true
 	}
 
+	method cambiarPosition(direccion) {
+	  position = direccion.siguiente(position) 
+	}
+
 	method mover(direccion) {
-	return position.siguiente(direccion)
+	self.cambiarPosition(direccion) 
 	self.volar(1)
 	}
 
-	method text() = "\n\n\n\n" + energia + " \" "
+	method text() = "\n\n\n\n" + " \" " + energia + " \" "
 
 	method color() = "0E28ED" 
 
