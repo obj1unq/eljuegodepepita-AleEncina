@@ -36,11 +36,11 @@ object pepita {
 	}
 
 	method mover(direccion) {
-	  return if(position.siguiente(direccion))
-	  self.volar(1)
+	return position.siguiente(direccion)
+	self.volar(1)
 	}
 
-	method text() = "\n\n\n\n" + energia + "\""
+	method text() = "\n\n\n\n" + energia + " \" "
 
 	method color() = "0E28ED" 
 
