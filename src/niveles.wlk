@@ -1,16 +1,14 @@
-import example.*
+import pepita.*
 import extras.*
 import wollok.game.*
 import direccion.*
 import comidas.*
-import pepita.*
-
 
 object nivel1 {
     method init() {
         pepita.init()
         game.clear()
-        
+
         keyboard.up().onPressDo({ pepita.mover(arriba) })
         keyboard.down().onPressDo({ pepita.mover(abajo) })
         keyboard.right().onPressDo({ pepita.mover(derecha) })
@@ -21,7 +19,7 @@ object nivel1 {
         // keyboard.c().onPressDo({ pepita.comerAca() })
         game.onCollideDo(manzana, { alguien => alguien.comer(manzana) })
         game.onCollideDo(silvestre, { alguien => alguien.morir() })
-        game.onTick(1000, "gravedad", {     })
+        game.onTick(1000, "gravedad", { pepita.bajar(1)   })
         
         game.addVisual(silvestre)
         game.addVisual(pepita)

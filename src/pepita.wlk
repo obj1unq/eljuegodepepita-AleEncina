@@ -1,8 +1,7 @@
 import comidas.*
 import extras.*
-import wollok.game.*
 import direccion.*
-import niveles.*
+import wollok.game.*
 
 object pepita {
 	var energia = 100
@@ -60,8 +59,8 @@ object pepita {
 
 	method color() = "0E28ED" 
 
-	method descender(cantidad) {
-		position = position.down(1)
+	method bajar(cantidad) {
+		position = position.down(cantidad)
 	}
 	
 }
