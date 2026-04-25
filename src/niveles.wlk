@@ -1,9 +1,10 @@
 import example.*
-import src.extras.*
+import extras.*
 import wollok.game.*
 import direccion.*
-import pepita.*
 import comidas.*
+import pepita.*
+
 
 object nivel1 {
     method init() {
@@ -17,10 +18,10 @@ object nivel1 {
         
         keyboard.x().onPressDo({ self.init() })
         
-        //keyboard.c().onPressDo({ pepita.comerAca() })
+        // keyboard.c().onPressDo({ pepita.comerAca() })
         game.onCollideDo(manzana, { alguien => alguien.comer(manzana) })
         game.onCollideDo(silvestre, { alguien => alguien.morir() })
-        game.onTick(800, "gravedad", {  pepita.descender(1))  }
+        game.onTick(1000, "gravedad", {     })
         
         game.addVisual(silvestre)
         game.addVisual(pepita)
