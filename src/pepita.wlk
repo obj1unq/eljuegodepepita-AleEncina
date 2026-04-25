@@ -52,6 +52,7 @@ object pepita {
 	}
 
 	method morir() {
+      game.say(self, "¡PERDÍ!")
 	  game.stop()
 	}
 
