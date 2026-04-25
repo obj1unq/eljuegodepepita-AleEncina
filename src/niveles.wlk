@@ -1,3 +1,4 @@
+import example.*
 import src.extras.*
 import wollok.game.*
 import direccion.*
@@ -19,7 +20,7 @@ object nivel1 {
         //keyboard.c().onPressDo({ pepita.comerAca() })
         game.onCollideDo(manzana, { alguien => alguien.comer(manzana) })
         game.onCollideDo(silvestre, { alguien => alguien.morir() })
-        game.onTick(1000, "gravedad", {     })
+        game.onTick(800, "gravedad", {  pepita.descender(1))  }
         
         game.addVisual(silvestre)
         game.addVisual(pepita)

@@ -59,6 +59,10 @@ object pepita {
 	method text() = "\n\n\n\n" + " \" " + energia + " \" "
 
 	method color() = "0E28ED" 
+
+	method descender(cantidad) {
+		position = position.down(1)
+	}
 }
 
 object muerta {
