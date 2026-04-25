@@ -18,11 +18,15 @@ object nivel1 {
         
         // keyboard.c().onPressDo({ pepita.comerAca() })
         game.onCollideDo(manzana, { alguien => alguien.comer(manzana) })
+        game.onCollideDo(alpiste, { alguien => alguien.comer(alpiste) })
         game.onCollideDo(silvestre, { alguien => alguien.morir() })
-        game.onTick(1000, "gravedad", { pepita.bajar(1)   })
+        game.onCollideDo(nido, { alguien => alguien.ganar() })
+        game.onTick(800, "gravedad", { pepita.bajar(1) })
         
-        game.addVisual(silvestre)
-        game.addVisual(pepita)
-        game.addVisual(manzana)
+    game.addVisual(silvestre)
+	game.addVisual(alpiste)
+    game.addVisual(manzana)
+	game.addVisual(nido)
+	game.addVisual(pepita)
     }
 }

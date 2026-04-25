@@ -13,6 +13,11 @@ object silvestre {
 
         return if(xPresa >= 3) xPresa else 3
     }
+}
 
+object nido {
+   var property position = game.at(9,8)
+
+   method image() = "nido.png"
 }
 

@@ -15,11 +15,11 @@ object pepita {
 	
 	method comer(comida) {
 		self.aumentarEnergiaDe(comida)
-		game.removeVisual(manzana)
+		game.removeVisual(comida)
 	}
 
 	method aumentarEnergiaDe(comida) {
-	  energia = energia + comida.energiaQueOtorga()
+	  	energia = energia + comida.energiaQueOtorga()
 	}
 
 	method volar(kms) {
@@ -41,7 +41,7 @@ object pepita {
 	}
 
 	method cambiarPosition(direccion) {
-	  position = direccion.siguiente(position) 
+	  	position = direccion.siguiente(position) 
 	}
 
 	method mover(direccion) {
@@ -51,19 +51,23 @@ object pepita {
 	else self.morir()
 	}
 
-	method morir() {
-      game.say(self, "¡PERDÍ!")
-	  game.stop()
-	}
-
 	method text() = "\n\n\n\n" + " \" " + energia + " \" "
 
 	method color() = "0E28ED" 
 
+	method morir() {
+      	game.say(self, "¡PERDÍ!")
+	  	game.stop()
+	}
+
+	method ganar() {
+		game.say(self, "¡GANE!")
+	 	game.stop()
+	}
+
 	method bajar(cantidad) {
 		position = position.down(cantidad)
 	}
-	
 }
 
 object muerta {
@@ -71,13 +75,12 @@ object muerta {
 	const estaViva = false
 
 	method energia() {
-	  return energia
+	  	return energia
 	}
 
 	method estaViva() {
 		return estaViva
 	}
-
 }
 
 
