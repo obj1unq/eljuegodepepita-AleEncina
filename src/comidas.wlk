@@ -1,8 +1,8 @@
 import wollok.game.*
 
 object manzana {
-	const base= 5
-	var madurez = 1
+	const base= 20
+	var madurez = 2
 	var property position = game.at(6,4)
 	
 	method energiaQueOtorga() {

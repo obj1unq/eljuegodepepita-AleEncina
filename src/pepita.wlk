@@ -1,3 +1,4 @@
+import src.comidas.*
 import src.extras.*
 import wollok.game.*
 import direccion.*
@@ -9,23 +10,23 @@ object pepita {
 	const perseguidor = silvestre 
 	var estaViva = true
 	
+	method energia() {
+		return energia
+	}
+	
 	method comer(comida) {
-		energia = energia + comida.energiaQueOtorga()
-		game.removeVisual("manzana.png")
+		self.aumentarEnergiaDe(comida)
+		game.removeVisual(manzana)
 	}
 
-	method comerAca() {
-	  game.removeVisual("manzana.png")
+	method aumentarEnergiaDe(comida) {
+	  energia = energia + comida.energiaQueOtorga()
 	}
 
 	method volar(kms) {
 		energia = energia - 9 * kms 
 	}
 	
-	method energia() {
-		return energia
-	}
-
 	method image() = "pepita-" + self.estado() + ".png"
 
 	method estado(){
@@ -45,13 +46,33 @@ object pepita {
 	}
 
 	method mover(direccion) {
-	self.cambiarPosition(direccion) 
-	self.volar(1)
+	if(energia >= 0) {
+		self.cambiarPosition(direccion) 
+		self.volar(1) } 
+	else self.morir()
+	}
+
+	method morir() {
+	  game.stop()
 	}
 
 	method text() = "\n\n\n\n" + " \" " + energia + " \" "
 
 	method color() = "0E28ED" 
+}
+
+object muerta {
+  	const energia = 0
+	const estaViva = false
+
+	method energia() {
+	  return energia
+	}
+
+	method estaViva() {
+		return estaViva
+	}
 
 }
+
 
