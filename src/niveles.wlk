@@ -6,8 +6,11 @@ import comidas.*
 
 object nivel1 {
     method init() {
+        const tick = game.tick(500, { muro.movete() }, false)
+
         pepita.init()
         game.clear()
+        tick.start()
 
         keyboard.up().onPressDo({ pepita.mover(arriba) })
         keyboard.down().onPressDo({ pepita.mover(abajo) })
@@ -27,6 +30,7 @@ object nivel1 {
 	game.addVisual(alpiste)
     game.addVisual(manzana)
 	game.addVisual(nido)
+    game.addVisual(muro)
 	game.addVisual(pepita)
     }
 }

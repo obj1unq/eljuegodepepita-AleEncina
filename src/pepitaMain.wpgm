@@ -6,6 +6,8 @@ import wollok.game.*
 import direccion.*
 
 program PepitaGame {
+	const tick = game.tick(500, { muro.movete() }, false)
+
 	game.title("Pepita")
 	game.cellSize(50)    
 	game.height(15)
@@ -17,9 +19,10 @@ program PepitaGame {
 	game.addVisual(alpiste)
     game.addVisual(manzana)
 	game.addVisual(nido)
+	game.addVisual(muro)
 	game.addVisual(pepita)
 	
 	nivel1.init()
-	
+	tick.start()
 	game.start()
 }

@@ -21,3 +21,14 @@ object nido {
    method image() = "nido.png"
 }
 
+object muro {
+    var property position = game.at(3,3)
+
+    method image() = "muro.png"
+
+    method movete() {
+      const x = (0.. game.width()-1).anyOne()
+      const y = (0.. game.height()-1).anyOne()
+    }
+}
+
