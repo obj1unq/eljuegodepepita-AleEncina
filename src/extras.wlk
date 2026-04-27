@@ -22,7 +22,7 @@ object nido {
 }
 
 object muro {
-    var property position = game.at(3,3)
+    var property position = game.at(8,8)
 
     method image() = "muro.png"
 
