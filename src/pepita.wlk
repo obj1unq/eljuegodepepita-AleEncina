@@ -65,8 +65,8 @@ object pepita {
 	 	game.stop()
 	}
 
-	method bajar(cantidad) {
-		position = position.down(cantidad)
+	method bajar() {
+		self.cambiarPosition(abajo)
 	}
 }
 

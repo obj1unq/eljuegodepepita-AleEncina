@@ -18,7 +18,6 @@ program PepitaGame {
 	game.addVisual(alpiste)
     game.addVisual(manzana)
 	game.addVisual(nido)
-	game.addVisual(muro)
 	game.addVisual(pepita)
 	
 	nivel1.init()

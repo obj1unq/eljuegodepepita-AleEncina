@@ -5,7 +5,7 @@ object manzana {
 	const base= 20
 	var madurez = 2
 	var property position = game.at(6,4)
-	
+
 	method energiaQueOtorga() {
 		return base * madurez	
 	}
@@ -13,6 +13,14 @@ object manzana {
 	method madurar() {
 		madurez = madurez + 1
 	}
+	
+	method image() = "manzana.png"
+}
+
+class Manzana{
+	const base= 20
+	var madurez = 2
+	var property position = game.at(6,4)
 	
 	method image() = "manzana.png"
 }
