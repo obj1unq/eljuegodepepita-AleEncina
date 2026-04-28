@@ -10,7 +10,10 @@ object pepita {
 	
 	method energia() { return energia }
 	
-	method comer(comida) { try{ self.aumentarEnergiaDe(comida) game.removeVisual(comida) } catch c: wollok.lang.Exception{ self.error("No funciona")} }
+	method comer(comida) { 
+		try { self.aumentarEnergiaDe(comida) game.removeVisual(comida) } 
+			catch c: wollok.lang.Exception { self.error("No es una comida") } 
+	}
 
 	method aumentarEnergiaDe(comida) { energia = energia + comida.energiaQueOtorga() }
 
@@ -18,7 +21,7 @@ object pepita {
 	
 	method image() = "pepita-" + self.estado() + ".png"
 
-	method estado() { return if(self.atrapada()) "gris" else "libre" }
+	method estado() { return if( self.atrapada() ) "gris" else "libre" }
 	
 	method atrapada() = position == perseguidor.position()
 
@@ -32,24 +35,19 @@ object pepita {
 
 	method color() = "0E28ED" 
 
-	method morir() { game.say(self, "¡PERDÍ!") game.stop() }
+	method morir() { self.quitarEventos() game.say(self, "¡PERDÍ!") self.finalizar() }
 
-	method ganar() { game.say(self, "¡GANE!") game.stop() }
+	method ganar() { self.quitarEventos() game.say(self, "¡GANE!") self.finalizar() }
 
-	method bajar() { self.cambiarPosition(abajo) }
-}
-
-object muerta {
-  	const energia = 0
-	const estaViva = false
-
-	method energia() {
-	  	return energia
+	method quitarEventos() {
+	  game.removeTickEvent("gravedad")
+	  //game.removeTickEvent("comidas")
 	}
 
-	method estaViva() {
-		return estaViva
-	}
+	method finalizar() { game.schedule(2000, { game.stop() } ) }
+
+	method caer() { self.cambiarPosition(abajo) }
 }
+
 
 
