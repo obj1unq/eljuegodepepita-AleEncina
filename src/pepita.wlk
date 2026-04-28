@@ -40,7 +40,7 @@ object pepita {
 
 	method quitarEventos() {
 	  game.removeTickEvent("gravedad")
-	  game.removeTickEvent("puedeGenerarComida")
+	  //game.removeTickEvent("puedeGenerarComida")
 	}
 
 	method finalizar() { game.schedule(2000, { game.stop() } ) }

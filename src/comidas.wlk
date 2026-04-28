@@ -1,9 +1,10 @@
 import wollok.game.*
-import randomizer.*
-class Manzana {
+//import randomizer.*
+
+object manzana {		//class Manzana
 	const base= 20
-	var madurez = 2
-	var property position = null
+	var madurez = 1
+	var property position = game.at(8, 6)	//null
 
 	method energiaQueOtorga() {
 		return base * madurez	
@@ -16,8 +17,8 @@ class Manzana {
 	method image() = "manzana.png"
 }
 
-class Alpiste {
-	var property position = null
+object alpiste {		//class Alpiste
+	var property position = game.at(4, 6)	//null
 
 	method energiaQueOtorga() {
 		return 40.randomUpTo(100).truncate(0)
@@ -28,17 +29,11 @@ class Alpiste {
 
 object comida {
 
-	method puedeAgregarComida() { if(game.allVisuals().size() < 6) self.generarComida() }
+	//method puedeAgregarComida() { if(game.allVisuals().size() < 6) self.generarComida() }
 
-	method generarComida() {
-		if(0.randomUpTo(2).truncate(0) == 0) { new Manzana() } else new Alpiste()
-		}
-
-
-
-
-
-
+	//method generarComida() {
+	//	if(1.randomUpTo(2).truncate(0) == 1) { new Manzana() } else new Alpiste()
+	//	}
 }
 
 

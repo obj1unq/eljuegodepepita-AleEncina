@@ -31,13 +31,13 @@ object config {
 
     method eventos() {
         game.onTick(800, "gravedad", { pepita.caer() })
-        game.onTick(3000, "puedeGenerarComida", { comida.puedeAgregarComida() })
+        //game.onTick(3000, "puedeGenerarComida", { comida.puedeAgregarComida() })
     }
 
     method visuales() {
         game.addVisual(silvestre)
-	    //game.addVisual(alpiste)
-        //game.addVisual(manzana)
+	    game.addVisual(alpiste)
+        game.addVisual(manzana)
 	    game.addVisual(nido)
 	    game.addVisual(pepita)
     }
