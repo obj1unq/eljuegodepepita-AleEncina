@@ -1,11 +1,12 @@
 import pepita.*
 import comidas.*
+import wollok.game.*
+import extras.*
+import niveles.*
 
 describe "Tests de Pepita" {
 
-
-	test "Al comer pepita aumenta su energia" {
-		pepita.comer(manzana)
+	test "morir" {
 		assert.equals(105, pepita.energia())
 	}
 
@@ -13,6 +14,8 @@ describe "Tests de Pepita" {
 		pepita.volar(1)
 		assert.equals(89, pepita.energia())
 	}
+
+
 
 
 

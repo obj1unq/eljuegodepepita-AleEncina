@@ -1,0 +1,13 @@
+import pepita.*
+import comidas.*
+import niveles.*
+import extras.*
+import wollok.game.*
+import direccion.*
+
+program PepitaGame {
+	config.datos()
+	config.visuales()
+	nivel1.init()
+	game.start()
+}
