@@ -1,6 +1,5 @@
 object izquierda{
   method siguiente(position) = if(position.x() > 0) position.left(1) else self.error("No se puede Mover")
-
 }
 
 object derecha{

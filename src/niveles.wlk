@@ -3,7 +3,6 @@ import extras.*
 import wollok.game.*
 import direccion.*
 import comidas.*
-
 object nivel1 {
     method init() {
     pepita.init()
@@ -15,11 +14,13 @@ object nivel1 {
     keyboard.left().onPressDo({ pepita.mover(izquierda) })
     keyboard.x().onPressDo({ self.init() })
         
-    game.onCollideDo(manzana, { alguien => alguien.comer(manzana) })
-    game.onCollideDo(alpiste, { alguien => alguien.comer(alpiste) })
-    game.onCollideDo(silvestre, { alguien => alguien.morir() })
+    game.onCollideDo(pepita, { algo => pepita.comer(algo) })
     game.onCollideDo(nido, { alguien => alguien.ganar() })
     game.onTick(800, "gravedad", { pepita.bajar() })
+    //game.onTick(800, "comidas", { comida.puedeAgregarComida() })
+
+
+
         
     game.addVisual(silvestre)
 	game.addVisual(alpiste)

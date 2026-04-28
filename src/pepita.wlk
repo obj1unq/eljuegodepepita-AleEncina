@@ -2,72 +2,41 @@ import comidas.*
 import extras.*
 import direccion.*
 import wollok.game.*
-
 object pepita {
 	var energia = 100
 	var property position = game.center()
 	const perseguidor = silvestre 
 	var estaViva = true
 	
-	method energia() {
-		return energia
-	}
+	method energia() { return energia }
 	
-	method comer(comida) {
-		self.aumentarEnergiaDe(comida)
-		game.removeVisual(comida)
-	}
+	method comer(comida) { try{ self.aumentarEnergiaDe(comida) game.removeVisual(comida) } catch c: wollok.lang.Exception{ self.error("No funciona")} }
 
-	method aumentarEnergiaDe(comida) {
-	  	energia = energia + comida.energiaQueOtorga()
-	}
+	method aumentarEnergiaDe(comida) { energia = energia + comida.energiaQueOtorga() }
 
-	method volar(kms) {
-		energia = energia - 9 * kms 
-	}
+	method volar(kms) { energia = energia - 9 * kms	}
 	
 	method image() = "pepita-" + self.estado() + ".png"
 
-	method estado(){
-    	return if(self.atrapada()) "gris" else "libre"
-	}
+	method estado() { return if(self.atrapada()) "gris" else "libre" }
 	
 	method atrapada() = position == perseguidor.position()
 
-	method init() {
-		energia = 100
-		position = game.at(5,5)
-		estaViva = true
-	}
+	method init() { energia = 100 position = game.at(5,5) estaViva = true }
 
-	method cambiarPosition(direccion) {
-	  	position = direccion.siguiente(position) 
-	}
+	method cambiarPosition(direccion) { position = direccion.siguiente(position) }
 
-	method mover(direccion) {
-	if(energia >= 0) {
-		self.cambiarPosition(direccion) 
-		self.volar(1) } 
-	else self.morir()
-	}
+	method mover(direccion) { if(energia >= 0) { self.cambiarPosition(direccion) self.volar(1) } else self.morir() }
 
 	method text() = "\n\n\n\n" + " \" " + energia + " \" "
 
 	method color() = "0E28ED" 
 
-	method morir() {
-      	game.say(self, "¡PERDÍ!")
-	  	game.stop()
-	}
+	method morir() { game.say(self, "¡PERDÍ!") game.stop() }
 
-	method ganar() {
-		game.say(self, "¡GANE!")
-	 	game.stop()
-	}
+	method ganar() { game.say(self, "¡GANE!") game.stop() }
 
-	method bajar() {
-		self.cambiarPosition(abajo)
-	}
+	method bajar() { self.cambiarPosition(abajo) }
 }
 
 object muerta {
