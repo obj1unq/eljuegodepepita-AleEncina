@@ -6,7 +6,6 @@ object pepita {
 	var energia = 100
 	var property position = game.center()
 	const perseguidor = silvestre 
-	var estaViva = true
 	
 	method energia() { return energia }
 	
@@ -25,7 +24,7 @@ object pepita {
 	
 	method atrapada() = position == perseguidor.position()
 
-	method init() { energia = 100 position = game.at(5,5) estaViva = true }
+	method init() { energia = 100 position = game.at(5,5) }
 
 	method cambiarPosition(direccion) { position = direccion.siguiente(position) }
 
@@ -41,7 +40,7 @@ object pepita {
 
 	method quitarEventos() {
 	  game.removeTickEvent("gravedad")
-	  //game.removeTickEvent("comidas")
+	  game.removeTickEvent("puedeGenerarComida")
 	}
 
 	method finalizar() { game.schedule(2000, { game.stop() } ) }
