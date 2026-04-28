@@ -1,10 +1,10 @@
 import wollok.game.*
-//import randomizer.*
+import randomizer.*
 
-object manzana {		//class Manzana
+object manzana {		
 	const base= 20
 	var madurez = 1
-	var property position = game.at(8, 6)	//null
+	var property position = game.at(4, 5)
 
 	method energiaQueOtorga() {
 		return base * madurez	
@@ -15,25 +15,42 @@ object manzana {		//class Manzana
 	}
 	
 	method image() = "manzana.png"
+
+	method init() {
+		self.position(randomizer.emptyPosition())
+		comida.agregarSiNoEsta(self) 
+	}
 }
 
 object alpiste {		//class Alpiste
-	var property position = game.at(4, 6)	//null
+	var property position = game.at(6, 8)
 
 	method energiaQueOtorga() {
 		return 40.randomUpTo(100).truncate(0)
 	}
 
 	method image() = "alpiste.png"
+
+	method init() {
+		self.position(randomizer.emptyPosition())
+		comida.agregarSiNoEsta(self) 
+	}
+	
 }
 
 object comida {
+	//method puedeGenerarComida() { if(game.allVisuals().size() < 6) self.generarComida() } //Esto es si hay clases
+	method generarComida() {
+		if(0.randomUpTo(2).truncate(0) == 0) { self.quitarSiEsta(manzana) manzana.init() } else self.quitarSiEsta(alpiste) alpiste.init()
+	}
 
-	//method puedeAgregarComida() { if(game.allVisuals().size() < 6) self.generarComida() }
+	method quitarSiEsta(unaComida) {
+	   if (game.allVisuals().contains(unaComida)) { game.removeVisual(unaComida) } 
+	}
 
-	//method generarComida() {
-	//	if(1.randomUpTo(2).truncate(0) == 1) { new Manzana() } else new Alpiste()
-	//	}
+	method agregarSiNoEsta(unaComida) {
+		if (!game.allVisuals().contains(unaComida)) { game.addVisual(unaComida) }
+	}
 }
 
 

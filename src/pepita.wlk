@@ -14,9 +14,9 @@ object pepita {
 			catch c: wollok.lang.Exception { self.error("No es una comida") } 
 	}
 
-	method aumentarEnergiaDe(comida) { energia = energia + comida.energiaQueOtorga() }
+	method aumentarEnergiaDe(comida) { energia += comida.energiaQueOtorga() }
 
-	method volar(kms) { energia = energia - 9 * kms	}
+	method volar(kms) { energia -= 9 * kms	}
 	
 	method image() = "pepita-" + self.estado() + ".png"
 
@@ -40,7 +40,7 @@ object pepita {
 
 	method quitarEventos() {
 	  game.removeTickEvent("gravedad")
-	  //game.removeTickEvent("puedeGenerarComida")
+	  game.removeTickEvent("puedeGenerarComida")
 	}
 
 	method finalizar() { game.schedule(2000, { game.stop() } ) }

@@ -26,18 +26,17 @@ object config {
 
     method colisiones() {
         game.onCollideDo(pepita, { algo => pepita.comer(algo) })
+        game.onCollideDo(silvestre, { alguien => alguien.morir() })
         game.onCollideDo(nido, { alguien => alguien.ganar() })
     }
 
     method eventos() {
         game.onTick(800, "gravedad", { pepita.caer() })
-        //game.onTick(3000, "puedeGenerarComida", { comida.puedeAgregarComida() })
+        game.onTick(3000, "generarComida", { comida.generarComida() })
     }
 
     method visuales() {
         game.addVisual(silvestre)
-	    game.addVisual(alpiste)
-        game.addVisual(manzana)
 	    game.addVisual(nido)
 	    game.addVisual(pepita)
     }
