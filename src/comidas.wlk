@@ -4,7 +4,7 @@ import randomizer.*
 object manzana {		
 	const base= 20
 	var madurez = 1
-	var property position = game.at(4, 5)
+	var property position = null
 
 	method energiaQueOtorga() {
 		return base * madurez	
@@ -23,7 +23,7 @@ object manzana {
 }
 
 object alpiste {		//class Alpiste
-	var property position = game.at(6, 8)
+	var property position = null
 
 	method energiaQueOtorga() {
 		return 40.randomUpTo(100).truncate(0)
@@ -39,7 +39,6 @@ object alpiste {		//class Alpiste
 }
 
 object comida {
-	//method puedeGenerarComida() { if(game.allVisuals().size() < 6) self.generarComida() } //Esto es si hay clases
 	method generarComida() {
 		if(0.randomUpTo(2).truncate(0) == 0) { self.quitarSiEsta(manzana) manzana.init() } else self.quitarSiEsta(alpiste) alpiste.init()
 	}

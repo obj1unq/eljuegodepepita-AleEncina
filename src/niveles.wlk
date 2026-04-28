@@ -7,7 +7,6 @@ object nivel1 {
     method init() {
     pepita.init()
     game.clear()
-
     config.teclas()
     config.colisiones()
     config.eventos()
@@ -32,7 +31,8 @@ object config {
 
     method eventos() {
         game.onTick(800, "gravedad", { pepita.caer() })
-        game.onTick(3000, "generarComida", { comida.generarComida() })
+        game.onTick(3000, "comidas", { comida.generarComida() })
+        game.schedule(5000, { manzana.madurar() } )
     }
 
     method visuales() {
